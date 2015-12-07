@@ -13,23 +13,16 @@ public class CheckBoxListViewActivity extends AppCompatActivity {
     private ArrayAdapter<String> adapter;
 
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listview);
 
         listView = (ListView) findViewById(R.id.list);
 
         String[] itemsListView = Utils.readTextFromAssets(this, "lorem_ipsum_text.txt");
         if (itemsListView != null) {
-            adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_multiple_choice, itemsListView);
+            adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_single_choice, itemsListView);
             listView.setAdapter(adapter);
         }
-
-        int len = listView.getCount();
-        SparseBooleanArray checked = listView.getCheckedItemPositions();
-        for (int i = 0; i < len; i++)
-            if (checked.get(i)) {
-                //String item = cont_list.get(i);
-            }
     }
 }

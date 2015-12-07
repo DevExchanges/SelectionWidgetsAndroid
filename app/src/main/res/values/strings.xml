@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Slection Widget Android</string>
+    <string name="actv">AutocompleteTextView Example</string>
+    <string name="grid">GridView Example</string>
+    <string name="spinner">Spinner Example</string>
+    <string name="list_choice">Single Choice ListView</string>
 </resources>

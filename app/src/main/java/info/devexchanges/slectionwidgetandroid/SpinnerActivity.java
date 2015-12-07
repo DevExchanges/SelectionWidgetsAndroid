@@ -16,8 +16,8 @@ public class SpinnerActivity extends AppCompatActivity {
     private TextView selectedText;
 
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spinner);
 
         spinner = (Spinner)findViewById(R.id.spinner);
@@ -26,7 +26,7 @@ public class SpinnerActivity extends AppCompatActivity {
         String[] alphabetArray = Utils.readTextFromAssets(this, "vi_alphabet.txt");
 
         if (alphabetArray != null) {
-            spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, alphabetArray);
+            spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, alphabetArray);
             spinner.setAdapter(spinnerAdapter);
         }
         spinner.setOnItemSelectedListener(onItemSelected());

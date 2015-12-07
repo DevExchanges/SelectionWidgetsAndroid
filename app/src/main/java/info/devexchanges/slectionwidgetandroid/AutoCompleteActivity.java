@@ -5,6 +5,7 @@ import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
 
@@ -14,11 +15,15 @@ public class AutoCompleteActivity extends AppCompatActivity {
     private TextView selectedText;
 
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_autocomplete_textview);
         autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.autocomplete_textview);
         selectedText = (TextView)findViewById(R.id.text_result);
+
+        String[] alphabetArray = Utils.readTextFromAssets(this, "lorem_ipsum_text.txt");
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1, alphabetArray);
+        autoCompleteTextView.setAdapter(adapter);
 
         autoCompleteTextView.addTextChangedListener(onTextWatcher());
     }
