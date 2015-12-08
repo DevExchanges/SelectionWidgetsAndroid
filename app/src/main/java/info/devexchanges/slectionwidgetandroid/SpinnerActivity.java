@@ -36,7 +36,7 @@ public class SpinnerActivity extends AppCompatActivity {
         return new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                selectedText.setText((String)adapterView.getSelectedItem());
+                selectedText.setText(adapterView.getSelectedItem() + " selected!");
             }
 
             @Override

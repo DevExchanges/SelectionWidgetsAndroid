@@ -1,7 +1,6 @@
 package info.devexchanges.slectionwidgetandroid;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
